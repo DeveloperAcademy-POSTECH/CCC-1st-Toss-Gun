@@ -54,11 +54,19 @@
 			children = (
 				AB53A1C12871DF6900695CFC /* AppDelegate.swift */,
 				AB53A1C52871DF6900695CFC /* ViewController.swift */,
-				AB53A1CA2871DF6A00695CFC /* Assets.xcassets */,
-				AB53A1CC2871DF6A00695CFC /* LaunchScreen.storyboard */,
-				AB53A1CF2871DF6A00695CFC /* Info.plist */,
+				AB53A1D72871E13700695CFC /* Files */,
 			);
 			path = TossClone;
+			sourceTree = "<group>";
+		};
+		AB53A1D72871E13700695CFC /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB53A1CF2871DF6A00695CFC /* Info.plist */,
+				AB53A1CC2871DF6A00695CFC /* LaunchScreen.storyboard */,
+				AB53A1CA2871DF6A00695CFC /* Assets.xcassets */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
