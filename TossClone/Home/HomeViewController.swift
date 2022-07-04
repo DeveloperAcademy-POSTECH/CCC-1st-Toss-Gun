@@ -58,10 +58,20 @@ extension HomeViewController {
     }
 
     private func getLogoButton() -> UIView {
-        let logoImage = UIImage(named: "TossLogo")
+        let image = UIImage(named: "TossLogo")
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 123, height: 44))
-        button.setImage(logoImage, for: .normal)
+        button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
+
+        return button
+    }
+
+    private func getChatButton() -> UIView {
+        let image = UIImage(systemName: "message.fill")
+        let button = UIButton(frame: CGRect(x: 30, y: 30, width: 21, height: 22))
+        button.setImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.tintColor = .systemGray
 
         return button
     }
