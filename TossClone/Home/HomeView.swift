@@ -29,7 +29,6 @@ class HomeView: UIView {
 extension HomeView {
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .orange // 존재 확인을 위해 backgroundColor 설정
     }
 
     func layout() {

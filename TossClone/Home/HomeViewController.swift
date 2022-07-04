@@ -20,15 +20,17 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func style() {
         homeView.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray4
     }
 
     private func layout() {
         view.addSubview(homeView)
 
         NSLayoutConstraint.activate([
-            homeView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            homeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             homeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: homeView.trailingAnchor)
+            view.trailingAnchor.constraint(equalTo: homeView.trailingAnchor),
+            homeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
