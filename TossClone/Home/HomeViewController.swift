@@ -57,7 +57,7 @@ extension HomeViewController {
         return navigationBar
     }
 
-    private func getLogoButton() -> UIView {
+    private func getLogoButton() -> UIButton {
         let image = UIImage(named: "TossLogo")
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 123, height: 44))
         button.setImage(image, for: .normal)
@@ -66,9 +66,19 @@ extension HomeViewController {
         return button
     }
 
-    private func getChatButton() -> UIView {
+    private func getChatButton() -> UIButton {
         let image = UIImage(systemName: "message.fill")
-        let button = UIButton(frame: CGRect(x: 30, y: 30, width: 21, height: 22))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 21, height: 22))
+        button.setImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.tintColor = .systemGray
+
+        return button
+    }
+
+    private func getNotificationButton() -> UIButton {
+        let image = UIImage(systemName: "bell.fill")
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 19, height: 22))
         button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
         button.tintColor = .systemGray
