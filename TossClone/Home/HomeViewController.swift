@@ -54,6 +54,16 @@ extension HomeViewController {
             navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
 
+        let itemsStack = getStackView()
+        navigationBar.addSubview(itemsStack)
+
+        NSLayoutConstraint.activate([
+            itemsStack.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 47 / 8),
+            itemsStack.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            itemsStack.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: itemsStack.trailingAnchor, multiplier: 26 / 8)
+        ])
+
         return navigationBar
     }
 
@@ -101,5 +111,31 @@ extension HomeViewController {
         ])
 
         return button
+    }
+
+    private func getStackView() -> UIStackView {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = 29
+
+        let logoButton = getLogoButton()
+        let chatButton = getChatButton()
+        let notificationButton = getNotificationButton()
+
+        let spacer = UIView()
+        spacer.translatesAutoresizingMaskIntoConstraints = false
+        let spacerWidth = view.frame.width - logoButton.frame.width - chatButton.frame.width - notificationButton.frame.width - 34 - stack.spacing * 3
+
+        NSLayoutConstraint.activate([
+            spacer.widthAnchor.constraint(equalToConstant: spacerWidth)
+        ])
+
+        stack.addArrangedSubview(logoButton)
+        stack.addArrangedSubview(spacer)
+        stack.addArrangedSubview(chatButton)
+        stack.addArrangedSubview(notificationButton)
+
+        return stack
     }
 }
