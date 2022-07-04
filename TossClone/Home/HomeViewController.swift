@@ -59,29 +59,46 @@ extension HomeViewController {
 
     private func getLogoButton() -> UIButton {
         let image = UIImage(named: "TossLogo")
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 123, height: 44))
+        let button = UIButton()
         button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 123),
+            button.heightAnchor.constraint(equalToConstant: 44)
+        ])
 
         return button
     }
 
     private func getChatButton() -> UIButton {
         let image = UIImage(systemName: "message.fill")
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 21, height: 22))
+        let button = UIButton()
         button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
         button.tintColor = .systemGray
+
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 21),
+            button.heightAnchor.constraint(equalToConstant: 22)
+        ])
 
         return button
     }
 
     private func getNotificationButton() -> UIButton {
         let image = UIImage(systemName: "bell.fill")
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 19, height: 22))
+        let button = UIButton()
         button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
         button.tintColor = .systemGray
+
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 19),
+            button.heightAnchor.constraint(equalToConstant: 22)
+        ])
 
         return button
     }
