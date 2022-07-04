@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB431C9828727E8C0005DA2E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB431C9728727E8C0005DA2E /* HomeViewController.swift */; };
+		AB431C9A28727E970005DA2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB431C9928727E970005DA2E /* HomeView.swift */; };
 		AB53A1C22871DF6900695CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53A1C12871DF6900695CFC /* AppDelegate.swift */; };
 		AB53A1C62871DF6900695CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53A1C52871DF6900695CFC /* ViewController.swift */; };
 		AB53A1CB2871DF6A00695CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53A1CA2871DF6A00695CFC /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB431C9728727E8C0005DA2E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AB431C9928727E970005DA2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AB53A1BE2871DF6900695CFC /* TossClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TossClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB53A1C12871DF6900695CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB53A1C52871DF6900695CFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB431C9628727E810005DA2E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AB431C9728727E8C0005DA2E /* HomeViewController.swift */,
+				AB431C9928727E970005DA2E /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		AB53A1B52871DF6900695CFC = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +67,7 @@
 		AB53A1C02871DF6900695CFC /* TossClone */ = {
 			isa = PBXGroup;
 			children = (
+				AB431C9628727E810005DA2E /* Home */,
 				AB53A1C12871DF6900695CFC /* AppDelegate.swift */,
 				AB53A1C52871DF6900695CFC /* ViewController.swift */,
 				AB53A1D72871E13700695CFC /* Files */,
@@ -166,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB53A1C62871DF6900695CFC /* ViewController.swift in Sources */,
+				AB431C9A28727E970005DA2E /* HomeView.swift in Sources */,
 				AB53A1C22871DF6900695CFC /* AppDelegate.swift in Sources */,
+				AB431C9828727E8C0005DA2E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
