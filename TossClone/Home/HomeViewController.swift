@@ -56,4 +56,13 @@ extension HomeViewController {
 
         return navigationBar
     }
+
+    private func getLogoButton() -> UIView {
+        let logoImage = UIImage(named: "TossLogo")
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 123, height: 44))
+        button.setImage(logoImage, for: .normal)
+        button.contentMode = .scaleAspectFit
+
+        return button
+    }
 }
