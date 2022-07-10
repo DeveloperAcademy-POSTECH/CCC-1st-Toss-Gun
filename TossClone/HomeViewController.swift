@@ -7,21 +7,6 @@
 
 import UIKit
 
-extension UIButton {
-    static func withSystemImage(systemName: String, fontSize: CGFloat) -> UIButton {
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: fontSize)
-        let image = UIImage(systemName: systemName, withConfiguration: imageConfig)
-
-        let button = UIButton()
-        button.tintColor = .systemGray
-
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(image, for: .normal)
-
-        return button
-    }
-}
-
 class HomeViewController: UIViewController {
     let logoButton: UIButton = {
         let logoImage = UIImage(named: "Logo")
@@ -43,47 +28,7 @@ class HomeViewController: UIViewController {
 
     var navigationBar: UIView!
 
-    let tossBankButton: UIButton = { // leading, trailing anchor는 layout에서 설정 필요
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.heightAnchor.constraint(equalToConstant: 72).isActive = true
-
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "토스뱅크"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        container.addSubview(label)
-
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12)
-        let chevronImage = UIImage(systemName: "chevron.right", withConfiguration: imageConfig)
-        let chevronImageView = UIImageView(image: chevronImage)
-        chevronImageView.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(chevronImageView)
-
-        NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25),
-            chevronImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            container.trailingAnchor.constraint(equalTo: chevronImageView.trailingAnchor, constant: 25)
-        ])
-
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .systemGray
-        button.backgroundColor = .white
-        button.layer.cornerRadius = 25
-        button.clipsToBounds = true
-        button.addSubview(container)
-
-        NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: button.leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: button.trailingAnchor),
-            container.topAnchor.constraint(equalTo: button.topAnchor),
-            container.bottomAnchor.constraint(equalTo: button.bottomAnchor)
-        ])
-
-        return button
-    }()
+    let tossBankButton = UIButton.ofSectionHeader(sectionName: "토스뱅크")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,5 +66,12 @@ extension HomeViewController {
             navigationBar.bottomAnchor.constraint(equalToSystemSpacingBelow: buttonsStack.bottomAnchor, multiplier: 11 / 8)
         ])
         view.addSubview(navigationBar)
+
+        view.addSubview(tossBankButton)
+        NSLayoutConstraint.activate([
+            tossBankButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            tossBankButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            view.trailingAnchor.constraint(equalTo: tossBankButton.trailingAnchor, constant: 15)
+        ])
     }
 }
