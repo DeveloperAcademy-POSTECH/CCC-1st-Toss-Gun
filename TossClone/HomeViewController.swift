@@ -38,8 +38,10 @@ class HomeViewController: UIViewController {
         return button
     }()
 
-    let chatButton = UIButton.withSystemImage(systemName: "message.fill", fontSize: 24)
-    let notificationButton = UIButton.withSystemImage(systemName: "bell.fill", fontSize: 24)
+    let chatButton = UIButton.withSystemImage(systemName: "message.fill", fontSize: 22)
+    let notificationButton = UIButton.withSystemImage(systemName: "bell.fill", fontSize: 22)
+
+    var navigationBar: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,32 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func layout() {
+        constructNavigationBar()
+    }
 
+    private func constructNavigationBar() {
+        navigationBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 91))
+        navigationBar.addSubview(logoButton)
+
+        NSLayoutConstraint.activate([
+            logoButton.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            logoButton.leadingAnchor.constraint(equalToSystemSpacingAfter: navigationBar.leadingAnchor, multiplier: 1)
+        ])
+
+        let buttonsStack = UIStackView()
+        buttonsStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonsStack.axis = .horizontal
+        buttonsStack.spacing = 29
+
+        buttonsStack.addArrangedSubview(chatButton)
+        buttonsStack.addArrangedSubview(notificationButton)
+
+        navigationBar.addSubview(buttonsStack)
+
+        NSLayoutConstraint.activate([
+            navigationBar.trailingAnchor.constraint(equalToSystemSpacingAfter: buttonsStack.trailingAnchor, multiplier: 26 / 8),
+            navigationBar.bottomAnchor.constraint(equalToSystemSpacingBelow: buttonsStack.bottomAnchor, multiplier: 11 / 8)
+        ])
+        view.addSubview(navigationBar)
     }
 }
