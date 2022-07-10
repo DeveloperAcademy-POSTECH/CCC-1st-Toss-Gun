@@ -43,6 +43,48 @@ class HomeViewController: UIViewController {
 
     var navigationBar: UIView!
 
+    let tossBankButton: UIButton = { // leading, trailing anchor는 layout에서 설정 필요
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.heightAnchor.constraint(equalToConstant: 72).isActive = true
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "토스뱅크"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        container.addSubview(label)
+
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12)
+        let chevronImage = UIImage(systemName: "chevron.right", withConfiguration: imageConfig)
+        let chevronImageView = UIImageView(image: chevronImage)
+        chevronImageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(chevronImageView)
+
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25),
+            chevronImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            container.trailingAnchor.constraint(equalTo: chevronImageView.trailingAnchor, constant: 25)
+        ])
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .systemGray
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 25
+        button.clipsToBounds = true
+        button.addSubview(container)
+
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: button.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: button.trailingAnchor),
+            container.topAnchor.constraint(equalTo: button.topAnchor),
+            container.bottomAnchor.constraint(equalTo: button.bottomAnchor)
+        ])
+
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray5
