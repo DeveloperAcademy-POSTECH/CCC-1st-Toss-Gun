@@ -7,6 +7,21 @@
 
 import UIKit
 
+extension UIButton {
+    static func withSystemImage(systemName: String, fontSize: CGFloat) -> UIButton {
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: fontSize)
+        let image = UIImage(systemName: systemName, withConfiguration: imageConfig)
+
+        let button = UIButton()
+        button.tintColor = .systemGray
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(image, for: .normal)
+
+        return button
+    }
+}
+
 class HomeViewController: UIViewController {
     let logoButton: UIButton = {
         let logoImage = UIImage(named: "Logo")
@@ -23,29 +38,8 @@ class HomeViewController: UIViewController {
         return button
     }()
 
-    let chatButton: UIButton = {
-        let chatImageConfig = UIImage.SymbolConfiguration(pointSize: 24)
-        let chatImage = UIImage(systemName: "message.fill", withConfiguration: chatImageConfig)
-        let button = UIButton()
-        button.tintColor = .systemGray
-
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(chatImage, for: .normal)
-
-        return button
-    }()
-
-    let notificationButton: UIButton = {
-        let notificationImageConfig = UIImage.SymbolConfiguration(pointSize: 24)
-        let notificationImage = UIImage(systemName: "bell.fill", withConfiguration: notificationImageConfig)
-        let button = UIButton()
-        button.tintColor = .systemGray
-
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(notificationImage, for: .normal)
-
-        return button
-    }()
+    let chatButton = UIButton.withSystemImage(systemName: "message.fill", fontSize: 24)
+    let notificationButton = UIButton.withSystemImage(systemName: "bell.fill", fontSize: 24)
 
     override func viewDidLoad() {
         super.viewDidLoad()
