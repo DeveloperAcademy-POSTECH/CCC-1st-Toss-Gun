@@ -13,7 +13,7 @@ extension UIButton {
         let image = UIImage(systemName: systemName, withConfiguration: imageConfig)
 
         let button = UIButton()
-        button.tintColor = .systemGray
+        button.tintColor = UIColor(named: "TossSecondary")
 
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(image, for: .normal)
@@ -48,7 +48,7 @@ extension UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .systemGray
-        button.backgroundColor = .white
+        button.backgroundColor = UIColor(named: "TossGroupedBackground")
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.addSubview(container)
