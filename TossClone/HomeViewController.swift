@@ -25,9 +25,7 @@ class HomeViewController: UIViewController {
 
     let chatButton = UIButton.withSystemImage(systemName: "message.fill", fontSize: 22)
     let notificationButton = UIButton.withSystemImage(systemName: "bell.fill", fontSize: 22)
-
     var navigationBar: UIView!
-
     let tossBankButton = UIButton.ofSectionHeader(sectionName: "토스뱅크", isAlone: true)
 
     override func viewDidLoad() {
@@ -66,12 +64,5 @@ extension HomeViewController {
             navigationBar.bottomAnchor.constraint(equalToSystemSpacingBelow: buttonsStack.bottomAnchor, multiplier: 11 / 8)
         ])
         view.addSubview(navigationBar)
-
-        view.addSubview(tossBankButton)
-        NSLayoutConstraint.activate([
-            tossBankButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            tossBankButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            view.trailingAnchor.constraint(equalTo: tossBankButton.trailingAnchor, constant: 15)
-        ])
     }
 }
