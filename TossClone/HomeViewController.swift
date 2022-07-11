@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
 
     var navigationBar: UIView!
 
-    let tossBankButton = UIButton.ofSectionHeader(sectionName: "토스뱅크")
+    let tossBankButton = UIButton.ofSectionHeader(sectionName: "토스뱅크", isAlone: true)
 
     override func viewDidLoad() {
         super.viewDidLoad()

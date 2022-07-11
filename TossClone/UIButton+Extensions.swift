@@ -21,10 +21,9 @@ extension UIButton {
         return button
     }
 
-    static func ofSectionHeader(sectionName: String) -> UIButton {
+    static func ofSectionHeader(sectionName: String, isAlone: Bool) -> UIButton {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.heightAnchor.constraint(equalToConstant: 72).isActive = true
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,9 +38,10 @@ extension UIButton {
         container.addSubview(chevronImageView)
 
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 27),
             label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25),
-            chevronImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            container.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: isAlone ? 27 : 15),
+            chevronImageView.centerYAnchor.constraint(equalTo: label.centerYAnchor),
             container.trailingAnchor.constraint(equalTo: chevronImageView.trailingAnchor, constant: 25)
         ])
 
@@ -49,7 +49,7 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .systemGray
         button.backgroundColor = UIColor(named: "TossGroupedBackground")
-        button.layer.cornerRadius = 25
+        button.layer.cornerRadius = isAlone ? 25 : 0
         button.clipsToBounds = true
         button.addSubview(container)
 
