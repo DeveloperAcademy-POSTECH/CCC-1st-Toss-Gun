@@ -56,7 +56,7 @@ struct Account {
         let labelsStack = UIStackView()
         labelsStack.translatesAutoresizingMaskIntoConstraints = false
         labelsStack.axis = .vertical
-        labelsStack.spacing = 10
+        labelsStack.spacing = 8
 
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
