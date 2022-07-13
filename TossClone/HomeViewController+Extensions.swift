@@ -84,3 +84,20 @@ extension HomeViewController {
         bottomPaddingView.heightAnchor.constraint(equalToConstant: 26).isActive = true
     }
 }
+
+// MARK: - Consumption Section
+extension HomeViewController {
+    func addConsumptionSection() {
+        consumptionSectionStack = UIStackView()
+        consumptionSectionStack.translatesAutoresizingMaskIntoConstraints = false
+        consumptionSectionStack.axis = .vertical
+        consumptionSectionStack.spacing = 0
+        consumptionSectionStack.layer.cornerRadius = 25
+        consumptionSectionStack.clipsToBounds = true
+
+        sectionsStack.addArrangedSubview(consumptionSectionStack)
+        consumptionSectionStack.addArrangedSubview(consumptionSectionHeaderButton)
+
+        assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
+    }
+}

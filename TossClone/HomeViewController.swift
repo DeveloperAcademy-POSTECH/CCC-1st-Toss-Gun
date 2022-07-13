@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
     let assetSectionHeaderButton = UIButton.ofSectionHeader(sectionName: "자산", isAlone: false)
     var assetsSectionStack: UIStackView!
 
+    var consumptionSectionStack: UIStackView!
+    let consumptionSectionHeaderButton = UIButton.ofSectionHeader(sectionName: "소비", isAlone: false)
+
     let normalAccounts = [
         Account(bank: .toss, name: "토스뱅크 계좌", balance: 2, isWithdrawable: true),
         Account(bank: .kakao, name: "카카오뱅크 계좌", balance: 10000, isWithdrawable: true),
@@ -112,5 +115,6 @@ extension HomeViewController {
 
         addTossBankButton()
         addAssetsSection()
+        addConsumptionSection()
     }
 }
