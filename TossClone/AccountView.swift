@@ -5,7 +5,6 @@
 //  Created by 김남건 on 2022/07/11.
 //
 
-import Foundation
 import UIKit
 
 extension Int {

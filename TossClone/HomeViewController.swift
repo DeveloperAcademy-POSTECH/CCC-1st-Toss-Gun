@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let contentWidth = UIScreen.main.bounds.width - 30
     let logoButton: UIButton = {
         let logoImage = UIImage(named: "Logo")
         let button = UIButton()
@@ -104,7 +105,10 @@ extension HomeViewController {
         sectionsStack.spacing = 11
 
         scrollView.addSubview(sectionsStack)
-        sectionsStack.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16).isActive = true
+        NSLayoutConstraint.activate([
+            sectionsStack.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16),
+            sectionsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
 
         addTossBankButton()
         addAssetsSection()
@@ -112,10 +116,7 @@ extension HomeViewController {
 
     private func addTossBankButton() {
         sectionsStack.addArrangedSubview(tossBankButton)
-        NSLayoutConstraint.activate([
-            tossBankButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            view.trailingAnchor.constraint(equalTo: tossBankButton.trailingAnchor, constant: 15)
-        ])
+        tossBankButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
     }
 
     private func addAssetsSection() {
@@ -130,10 +131,7 @@ extension HomeViewController {
         sectionsStack.addArrangedSubview(assetsSectionStack)
         assetsSectionStack.addArrangedSubview(assetSectionHeaderButton)
 
-        NSLayoutConstraint.activate([
-            assetSectionHeaderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            view.trailingAnchor.constraint(equalTo: assetSectionHeaderButton.trailingAnchor, constant: 15)
-        ])
+        assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
 
         addNormalAccounts()
         addDividerView()
@@ -146,10 +144,7 @@ extension HomeViewController {
             let accountView = AccountView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
-            NSLayoutConstraint.activate([
-                accountView.leadingAnchor.constraint(equalTo: assetsSectionStack.leadingAnchor),
-                accountView.trailingAnchor.constraint(equalTo: assetsSectionStack.trailingAnchor)
-            ])
+            accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
         }
     }
 
@@ -159,8 +154,7 @@ extension HomeViewController {
         assetsSectionStack.addArrangedSubview(container)
 
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: assetsSectionStack.leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: assetsSectionStack.trailingAnchor),
+            container.widthAnchor.constraint(equalToConstant: contentWidth),
             container.heightAnchor.constraint(equalToConstant: 29)
         ])
 
@@ -170,8 +164,7 @@ extension HomeViewController {
         container.addSubview(divider)
 
         NSLayoutConstraint.activate([
-            divider.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25),
-            container.trailingAnchor.constraint(equalTo: divider.leadingAnchor, constant: 25),
+            divider.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -50),
             divider.heightAnchor.constraint(equalToConstant: 1),
             divider.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             divider.centerYAnchor.constraint(equalTo: container.centerYAnchor)
@@ -183,10 +176,7 @@ extension HomeViewController {
             let accountView = AccountView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
-            NSLayoutConstraint.activate([
-                accountView.leadingAnchor.constraint(equalTo: assetsSectionStack.leadingAnchor),
-                accountView.trailingAnchor.constraint(equalTo: assetsSectionStack.trailingAnchor)
-            ])
+            accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
         }
     }
 
@@ -196,8 +186,6 @@ extension HomeViewController {
 
         assetsSectionStack.addArrangedSubview(bottomPaddingView)
 
-        NSLayoutConstraint.activate([
-            bottomPaddingView.heightAnchor.constraint(equalToConstant: 26)
-        ])
+        bottomPaddingView.heightAnchor.constraint(equalToConstant: 26).isActive = true
     }
 }
