@@ -62,7 +62,7 @@ extension HomeViewController {
 
     func addNormalAccounts() {
         for account in normalAccounts {
-            let accountView = RowContentView(account: account)
+            let accountView = RowContentView(content: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
@@ -71,7 +71,7 @@ extension HomeViewController {
 
     func addEtcAccounts() {
         for account in etcAccounts {
-            let accountView = RowContentView(account: account)
+            let accountView = RowContentView(content: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
@@ -104,9 +104,9 @@ extension HomeViewController {
 
         assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
         let usedContent = ConsumptionContent(name: "이번 달 쓴 금액", consumed: 90000, hasLog: true)
-        consumptionSectionStack.addArrangedSubview(RowContentView(account: usedContent))
+        consumptionSectionStack.addArrangedSubview(RowContentView(content: usedContent))
 
         let cardDebtContent = ConsumptionContent(name: "7월 20일 낼 카드값", consumed: 10000, hasLog: false)
-        consumptionSectionStack.addArrangedSubview(RowContentView(account: cardDebtContent))
+        consumptionSectionStack.addArrangedSubview(RowContentView(content: cardDebtContent))
     }
 }

@@ -19,8 +19,8 @@ extension Int {
 class RowContentView: UIView {
     var rowContent: RowContent
 
-    init(account: RowContent) {
-        self.rowContent = account
+    init(content: RowContent) {
+        self.rowContent = content
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 78).isActive = true
