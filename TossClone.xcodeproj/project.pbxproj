@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB03C8E1287BDD34008F3882 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB03C8E0287BDD34008F3882 /* AccountView.swift */; };
 		AB53A1C22871DF6900695CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53A1C12871DF6900695CFC /* AppDelegate.swift */; };
 		AB53A1C62871DF6900695CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53A1C52871DF6900695CFC /* ViewController.swift */; };
 		AB53A1CB2871DF6A00695CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53A1CA2871DF6A00695CFC /* Assets.xcassets */; };
 		AB53A1CE2871DF6A00695CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53A1CC2871DF6A00695CFC /* LaunchScreen.storyboard */; };
 		AB53A1E22871E79D00695CFC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AB53A1E12871E79D00695CFC /* .swiftlint.yml */; };
+		AB61013D287ABF240067A99A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61013C287ABF240067A99A /* HomeViewController.swift */; };
+		AB610141287B18260067A99A /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB610140287B18260067A99A /* UIButton+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB03C8E0287BDD34008F3882 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		AB53A1BE2871DF6900695CFC /* TossClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TossClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB53A1C12871DF6900695CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB53A1C52871DF6900695CFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		AB53A1CD2871DF6A00695CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB53A1CF2871DF6A00695CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB53A1E12871E79D00695CFC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		AB61013C287ABF240067A99A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AB610140287B18260067A99A /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB03C8DF287BDC7B008F3882 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AB03C8E0287BDD34008F3882 /* AccountView.swift */,
+				AB61013C287ABF240067A99A /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		AB53A1B52871DF6900695CFC = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +71,8 @@
 			children = (
 				AB53A1C12871DF6900695CFC /* AppDelegate.swift */,
 				AB53A1C52871DF6900695CFC /* ViewController.swift */,
+				AB03C8DF287BDC7B008F3882 /* Home */,
+				AB610140287B18260067A99A /* UIButton+Extensions.swift */,
 				AB53A1D72871E13700695CFC /* Files */,
 				AB53A1E12871E79D00695CFC /* .swiftlint.yml */,
 			);
@@ -165,8 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB03C8E1287BDD34008F3882 /* AccountView.swift in Sources */,
 				AB53A1C62871DF6900695CFC /* ViewController.swift in Sources */,
+				AB610141287B18260067A99A /* UIButton+Extensions.swift in Sources */,
 				AB53A1C22871DF6900695CFC /* AppDelegate.swift in Sources */,
+				AB61013D287ABF240067A99A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
