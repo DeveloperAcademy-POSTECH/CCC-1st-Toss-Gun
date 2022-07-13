@@ -51,3 +51,21 @@ struct Account: RowContent {
         isWithdrawable ? "송금" : nil
     }
 }
+
+struct ConsumptionContent: RowContent {
+    let name: String
+    let consumed: Int
+    let hasLog: Bool
+
+    var logoImageString: String {
+        "card"
+    }
+
+    var value: Int {
+        consumed
+    }
+
+    var buttonTitle: String? {
+        hasLog ? "내역" : nil
+    }
+}
