@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
 
     let etcAccounts = [
         Account(bank: .toss, name: "투자 * 토스증권", balance: 0, isWithdrawable: true),
-        Account(bank: .card, name: "포인트, 머니 2개", balance: 3000, isWithdrawable: false)
+        Account(bank: .toss, name: "포인트, 머니 2개", balance: 3000, isWithdrawable: false)
     ]
 
     override func viewDidLoad() {
@@ -144,7 +144,7 @@ extension HomeViewController {
 
     private func addNormalAccounts() {
         for account in normalAccounts {
-            let accountView = AccountView(account: account)
+            let accountView = RowContentView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
@@ -176,7 +176,7 @@ extension HomeViewController {
 
     private func addEtcAccounts() {
         for account in etcAccounts {
-            let accountView = AccountView(account: account)
+            let accountView = RowContentView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
