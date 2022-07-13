@@ -143,7 +143,7 @@ extension HomeViewController {
 
     private func addNormalAccounts() {
         for account in normalAccounts {
-            let accountView = account.accountView
+            let accountView = AccountView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             NSLayoutConstraint.activate([
@@ -180,7 +180,7 @@ extension HomeViewController {
 
     private func addEtcAccounts() {
         for account in etcAccounts {
-            let accountView = account.accountView
+            let accountView = AccountView(account: account)
             assetsSectionStack.addArrangedSubview(accountView)
 
             NSLayoutConstraint.activate([

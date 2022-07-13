@@ -39,18 +39,28 @@ struct Account {
     let name: String
     let balance: Int
     let isWithdrawable: Bool
+}
 
-    var accountView: UIView {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.heightAnchor.constraint(equalToConstant: 78).isActive = true
+class AccountView: UIView {
+    var account: Account
+    var logoImageView: UIImageView!
 
-        let logoImageView = bank.logoImageView
-        container.addSubview(logoImageView)
+    init(account: Account) {
+        self.account = account
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: 78).isActive = true
+
+        configureSubviews()
+    }
+
+    private func configureSubviews() {
+        let logoImageView = account.bank.logoImageView
+        addSubview(logoImageView)
 
         NSLayoutConstraint.activate([
-            logoImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            logoImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25)
+            logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25)
         ])
 
         let labelsStack = UIStackView()
@@ -62,23 +72,23 @@ struct Account {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         nameLabel.textColor = UIColor(named: "TossDarkGray")
-        nameLabel.text = name
+        nameLabel.text = account.name
         labelsStack.addArrangedSubview(nameLabel)
 
         let balanceLabel = UILabel()
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        balanceLabel.text = "\(balance.toFormattedString()) 원"
+        balanceLabel.text = "\(account.balance.toFormattedString()) 원"
         labelsStack.addArrangedSubview(balanceLabel)
 
-        container.addSubview(labelsStack)
+        addSubview(labelsStack)
 
         NSLayoutConstraint.activate([
             labelsStack.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 15),
             labelsStack.topAnchor.constraint(equalTo: logoImageView.topAnchor, constant: 1)
         ])
 
-        if isWithdrawable {
+        if account.isWithdrawable {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
             button.backgroundColor = UIColor(named: "TossTertiary")
@@ -87,16 +97,19 @@ struct Account {
             button.titleLabel?.font = .systemFont(ofSize: 12, weight: .semibold)
             button.layer.cornerRadius = 5
             button.clipsToBounds = true
-            container.addSubview(button)
+            addSubview(button)
 
             NSLayoutConstraint.activate([
                 button.widthAnchor.constraint(equalToConstant: 53),
                 button.heightAnchor.constraint(equalToConstant: 32),
-                button.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-                container.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 25)
+                button.centerYAnchor.constraint(equalTo: centerYAnchor),
+                trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 25)
             ])
         }
-
-        return container
     }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }
