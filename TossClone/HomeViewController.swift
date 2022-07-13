@@ -113,7 +113,10 @@ extension HomeViewController {
         addTossBankButton()
         addAssetsSection()
     }
+}
 
+// MARK: - Assets Section
+extension HomeViewController {
     private func addTossBankButton() {
         sectionsStack.addArrangedSubview(tossBankButton)
         tossBankButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
@@ -136,7 +139,7 @@ extension HomeViewController {
         addNormalAccounts()
         addDividerView()
         addEtcAccounts()
-        addBottomPaddingView()
+        addBottomPaddingViewToAssets()
     }
 
     private func addNormalAccounts() {
@@ -180,7 +183,7 @@ extension HomeViewController {
         }
     }
 
-    private func addBottomPaddingView() {
+    private func addBottomPaddingViewToAssets() {
         let bottomPaddingView = UIView()
         bottomPaddingView.translatesAutoresizingMaskIntoConstraints = false
 
