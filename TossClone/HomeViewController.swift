@@ -99,6 +99,8 @@ extension HomeViewController {
         ])
 
         constructSections()
+
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 833)
     }
 
     private func constructSections() {

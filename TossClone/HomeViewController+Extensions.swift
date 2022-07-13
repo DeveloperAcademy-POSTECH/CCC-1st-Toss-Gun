@@ -7,6 +7,32 @@
 
 import UIKit
 
+// MARK: - Common
+extension HomeViewController {
+    func addDividerView(to stackView: UIStackView) {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(container)
+
+        NSLayoutConstraint.activate([
+            container.widthAnchor.constraint(equalToConstant: contentWidth),
+            container.heightAnchor.constraint(equalToConstant: 29)
+        ])
+
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = UIColor(named: "TossBackground")
+        container.addSubview(divider)
+
+        NSLayoutConstraint.activate([
+            divider.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -50),
+            divider.heightAnchor.constraint(equalToConstant: 1),
+            divider.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            divider.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+        ])
+    }
+}
+
 // MARK: - Assets Section
 extension HomeViewController {
     func addTossBankButton() {
@@ -29,7 +55,7 @@ extension HomeViewController {
         assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
 
         addNormalAccounts()
-        addDividerView()
+        addDividerView(to: assetsSectionStack)
         addEtcAccounts()
         addBottomPaddingViewToAssets()
     }
@@ -41,29 +67,6 @@ extension HomeViewController {
 
             accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
         }
-    }
-
-    func addDividerView() {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        assetsSectionStack.addArrangedSubview(container)
-
-        NSLayoutConstraint.activate([
-            container.widthAnchor.constraint(equalToConstant: contentWidth),
-            container.heightAnchor.constraint(equalToConstant: 29)
-        ])
-
-        let divider = UIView()
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor(named: "TossBackground")
-        container.addSubview(divider)
-
-        NSLayoutConstraint.activate([
-            divider.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -50),
-            divider.heightAnchor.constraint(equalToConstant: 1),
-            divider.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            divider.centerYAnchor.constraint(equalTo: container.centerYAnchor)
-        ])
     }
 
     func addEtcAccounts() {
@@ -92,6 +95,7 @@ extension HomeViewController {
         consumptionSectionStack.translatesAutoresizingMaskIntoConstraints = false
         consumptionSectionStack.axis = .vertical
         consumptionSectionStack.spacing = 0
+        consumptionSectionStack.backgroundColor = .white
         consumptionSectionStack.layer.cornerRadius = 25
         consumptionSectionStack.clipsToBounds = true
 
@@ -99,5 +103,10 @@ extension HomeViewController {
         consumptionSectionStack.addArrangedSubview(consumptionSectionHeaderButton)
 
         assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
+        let usedContent = ConsumptionContent(name: "이번 달 쓴 금액", consumed: 90000, hasLog: true)
+        consumptionSectionStack.addArrangedSubview(RowContentView(account: usedContent))
+
+        let cardDebtContent = ConsumptionContent(name: "7월 20일 낼 카드값", consumed: 10000, hasLog: false)
+        consumptionSectionStack.addArrangedSubview(RowContentView(account: cardDebtContent))
     }
 }
