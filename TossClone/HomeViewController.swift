@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
     let assetSectionHeaderButton = UIButton.ofSectionHeader(sectionName: "자산", isAlone: false)
     var assetsSectionStack: UIStackView!
 
+    var consumptionSectionStack: UIStackView!
+    let consumptionSectionHeaderButton = UIButton.ofSectionHeader(sectionName: "소비", isAlone: false)
+
     let normalAccounts = [
         Account(bank: .toss, name: "토스뱅크 계좌", balance: 2, isWithdrawable: true),
         Account(bank: .kakao, name: "카카오뱅크 계좌", balance: 10000, isWithdrawable: true),
@@ -41,7 +44,7 @@ class HomeViewController: UIViewController {
 
     let etcAccounts = [
         Account(bank: .toss, name: "투자 * 토스증권", balance: 0, isWithdrawable: true),
-        Account(bank: .card, name: "포인트, 머니 2개", balance: 3000, isWithdrawable: false)
+        Account(bank: .toss, name: "포인트, 머니 2개", balance: 3000, isWithdrawable: false)
     ]
 
     override func viewDidLoad() {
@@ -96,6 +99,8 @@ extension HomeViewController {
         ])
 
         constructSections()
+
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 833)
     }
 
     private func constructSections() {
@@ -112,80 +117,6 @@ extension HomeViewController {
 
         addTossBankButton()
         addAssetsSection()
-    }
-
-    private func addTossBankButton() {
-        sectionsStack.addArrangedSubview(tossBankButton)
-        tossBankButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
-    }
-
-    private func addAssetsSection() {
-        assetsSectionStack = UIStackView()
-        assetsSectionStack.translatesAutoresizingMaskIntoConstraints = false
-        assetsSectionStack.backgroundColor = .systemBackground
-        assetsSectionStack.axis = .vertical
-        assetsSectionStack.spacing = 0
-        assetsSectionStack.layer.cornerRadius = 25
-        assetsSectionStack.clipsToBounds = true
-
-        sectionsStack.addArrangedSubview(assetsSectionStack)
-        assetsSectionStack.addArrangedSubview(assetSectionHeaderButton)
-
-        assetSectionHeaderButton.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
-
-        addNormalAccounts()
-        addDividerView()
-        addEtcAccounts()
-        addBottomPaddingView()
-    }
-
-    private func addNormalAccounts() {
-        for account in normalAccounts {
-            let accountView = AccountView(account: account)
-            assetsSectionStack.addArrangedSubview(accountView)
-
-            accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
-        }
-    }
-
-    private func addDividerView() {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        assetsSectionStack.addArrangedSubview(container)
-
-        NSLayoutConstraint.activate([
-            container.widthAnchor.constraint(equalToConstant: contentWidth),
-            container.heightAnchor.constraint(equalToConstant: 29)
-        ])
-
-        let divider = UIView()
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor(named: "TossBackground")
-        container.addSubview(divider)
-
-        NSLayoutConstraint.activate([
-            divider.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -50),
-            divider.heightAnchor.constraint(equalToConstant: 1),
-            divider.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            divider.centerYAnchor.constraint(equalTo: container.centerYAnchor)
-        ])
-    }
-
-    private func addEtcAccounts() {
-        for account in etcAccounts {
-            let accountView = AccountView(account: account)
-            assetsSectionStack.addArrangedSubview(accountView)
-
-            accountView.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
-        }
-    }
-
-    private func addBottomPaddingView() {
-        let bottomPaddingView = UIView()
-        bottomPaddingView.translatesAutoresizingMaskIntoConstraints = false
-
-        assetsSectionStack.addArrangedSubview(bottomPaddingView)
-
-        bottomPaddingView.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        addConsumptionSection()
     }
 }
