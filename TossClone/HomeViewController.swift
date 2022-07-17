@@ -116,6 +116,7 @@ extension HomeViewController {
         addTossBankButton()
         addAssetsSection()
         addConsumptionSection()
+        addEtcSection()
     }
 
     override func viewDidLayoutSubviews() {
