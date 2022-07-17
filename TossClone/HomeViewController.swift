@@ -99,8 +99,6 @@ extension HomeViewController {
         ])
 
         constructSections()
-
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 833)
     }
 
     private func constructSections() {
@@ -118,5 +116,9 @@ extension HomeViewController {
         addTossBankButton()
         addAssetsSection()
         addConsumptionSection()
+    }
+
+    override func viewDidLayoutSubviews() {
+        scrollView.contentSize = CGSize(width: view.frame.width, height: sectionsStack.frame.height)
     }
 }
